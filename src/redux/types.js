@@ -1,0 +1,4 @@
+export const ADD_CHARACTER = 'TYPING/ADD_CHARACTER'
+export const WRONG_CHARACTER = 'TYPING/WRONG_CHARACTER'
+export const SET_TEXT = 'TYPING/SET_TEXT'
+export const END = 'TYPING/END'

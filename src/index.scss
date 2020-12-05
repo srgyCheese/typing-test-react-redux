@@ -10,6 +10,21 @@ body {
   margin: 0 0;
 }
 
+.current {
+  background-color: limegreen;
+  padding: 0 2px;
+  color: whitesmoke;
+  border-radius: 3px;
+}
+
+.passed {
+  background-color: silver;
+}
+
+.wrong {
+  background-color: red;
+}
+
 .typing-test {
   font-size: 20px;
   margin: 20px auto;
@@ -19,13 +34,14 @@ body {
   max-width: 900px;
 
   display: flex;
+  justify-content: space-between;
 
   .text {
     width: 80%;
   }
 
   .info {
-    width: 20%;
+    width: 15%;
     color: green;
   }
 }
