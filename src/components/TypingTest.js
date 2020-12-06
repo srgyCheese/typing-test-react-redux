@@ -2,6 +2,7 @@ import React, {useEffect, useCallback} from 'react'
 import {connect} from 'react-redux'
 import classNames from 'classnames'
 import {addCharacter, endTyping, wrongCharacter, setText} from '../redux/actions'
+import TypingSpeed from './TypingSpeed'
 
 const TypingTest = ({state, setText, addCharacter, wrongCharacter, endTyping}) => {
    const start = useCallback(() => {
@@ -13,15 +14,18 @@ const TypingTest = ({state, setText, addCharacter, wrongCharacter, endTyping}) =
 
       const randomText = texts[Math.floor(Math.random() * texts.length)]
 
-      const textArray = randomText.split('').map((item, i) => ({value: item, id: i}) )
+      const textArray = randomText.split('').map((item, i) => ({value: item, id: i}))
 
       setText(textArray)
    }, [setText])
 
    const keyPressHandler = useCallback(event => {
+      if (event.key.length > 1) {
+         return
+      }
+
       if (state.text.length - 1 <= state.current) {
          endTyping()
-         start()
          return
       }
 
@@ -62,10 +66,7 @@ const TypingTest = ({state, setText, addCharacter, wrongCharacter, endTyping}) =
             })}
          </div>
          <div className="info">
-            Скорость: <br/>
-            0 зн/мин
-            Точность: <br/>
-            0%
+            <TypingSpeed/>
          </div>
       </div>
    )
